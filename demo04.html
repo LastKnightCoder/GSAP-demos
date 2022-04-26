@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo04</title>
+  <style>
+    /* #box {
+      width: 100px;
+      height: 100px;
+      background-color: #93b5cf;
+    } */
+  </style>
+</head>
+
+<body>
+  <div id="box">1</div>
+  <script src="./gsap.js"></script>
+  <script src="./fullscreen.js"></script>
+  <script>
+    let played = false
+    const obj = {
+      num: 1
+    }
+    const box = document.getElementById('box')
+    document.addEventListener('keydown', e => {
+      if (e.key == ' ' && !played) {
+        played = true
+        gsap.to(obj, {
+          num: 100,
+          duration: 1,
+          onUpdate: function() {
+            box.innerHTML = Math.round(obj.num)
+          }
+        })
+      } else if (e.key == 'p' && played) {
+        played = false
+        gsap.to(obj, {
+          num: 1,
+          duration: 1,
+          onUpdate: function() {
+            box.innerHTML = Math.round(obj.num)
+          }
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>
