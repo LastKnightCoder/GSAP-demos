@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>demo07</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #93b5cf;
+      /* opacity: 0; */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script src="./gsap.js"></script>
+  <script src="./fullscreen.js"></script>
+  <script>
+    let played = false
+    document.addEventListener('keydown', e => {
+      if (e.key == ' ' && !played) {
+        played = true
+        gsap.set('.box', {
+          x: 200
+        })
+      }else if (e.key == 'p' && played) {
+        played = false
+        gsap.set('.box', {
+          x: 0
+        })
+      }
+    })
+  </script>
+</body>
+
+</html>
