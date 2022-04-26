@@ -5,12 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>demo01</title>
+  <title>demo02</title>
   <style>
-    #box, .box {
+    .box {
       width: 100px;
       height: 100px;
       background-color: #93b5cf;
+    }
+    .box:nth-child(2) {
+      background-color: #74787a;
     }
   </style>
 </head>
@@ -18,14 +21,14 @@
 <body>
   <div class="box"></div>
   <div class="box"></div>
-  <div id="box"></div>
   <script src="./gsap.js"></script>
+  <script src="./fullscreen.js"></script>
   <script>
     let played = false
     document.addEventListener('keydown', e => {
       if (e.key == ' ' && !played) {
         played = true
-        gsap.to(['.box', document.getElementById('box')], {
+        gsap.to('.box', {
           x: 200,
           duration: 1,
         })
